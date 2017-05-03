@@ -16,15 +16,20 @@
             Print out the name of the player with the higher score,
             or "Tie" if there is a tie.
         */
-        
+        //assign prompts to variables
         var player1Name = prompt("Player 1 Name:"); 
         var player2Name = prompt("Player 2 Name:");
-
+        //player 1 wins
         if (player1Score > player2Score){
             console.log(player1Name + "wins with" + player1Score + "points!")
         }
+        //player 2 wins
         else if (player2Score > player1Score){
             console.log(player2Name + "wins with" + player2Score + "points!")
+        }
+        //it's a tie!
+        else if (player2Score === player1Score){
+            console.log(player2Name + " and " + player1Name + " tied the game with " + player2Score + "points!")
         }
 
     </script>

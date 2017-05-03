@@ -20,42 +20,7 @@
                 6. A player's score is multiplied by 1.5 if they are carrying the ball but only if they are not in a tree. Disregard this rule if the player is crying.
                 7. If the player's last play was a number (not a letter), the player's score is multiplied by that amount.
         */
-        if (typeof(score) != "number") {
-            score = 500;
-        }; 
 
-        if (crying){
-            score = score -300
-        }
-        else if (!crying){
-            score = score + 50
-        };
-
-        if (last_play === "Q"){
-            score = score - 77
-        }; 
-
-        if (is_in_tree && typeof(last_play)!= "number"){
-            score = score + 395
-        };
-
-        if (broom === "handle"){
-            score = score * 2
-        }
-        else if (broom === "brush"){
-            score = score * 3
-        }
-        else {
-            score = score / 2
-        };
-
-        if (has_ball && !is_in_tree && !crying){
-            score = score * 1.5
-        };
-
-        if (typeof(last_play)== "number"){
-            score = score * last_play
-        };
 
 
         //Player One
@@ -86,8 +51,47 @@
         var is_in_tree = false;
         var crying = true;
         */
+        //score is not a number
+        if (typeof(score) != "number") {
+            score = 500;
+        }; 
+        //player is crying
+        if (crying){
+            score = score -300
+        }
+        //player is not crying
+        else if (!crying){
+            score = score + 50
+        };
+        //last play is a Q
+        if (last_play === "Q"){
+            score = score - 77
+        }; 
+        //in tree, last play is not a number
+        if (is_in_tree && typeof(last_play)!= "number"){
+            score = score + 395
+        };
+        //catch broom by handle
+        if (broom === "handle"){
+            score = score * 2
+        }
+        //catch broom by brunch
+        else if (broom === "brush"){
+            score = score * 3
+        }
+        //anything else
+        else {
+            score = score / 2
+        };
 
-
+        //has ball, is not in tree, is not crying
+        if (has_ball && !is_in_tree && !crying){
+            score = score * 1.5
+        };
+        //lastplay is a number
+        if (typeof(last_play)== "number"){
+            score = score * last_play
+        };
 
         console.log(score);
 
